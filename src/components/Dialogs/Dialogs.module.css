@@ -1,8 +1,12 @@
 .dialogs{
     display: grid;
     grid-template-columns: 2fr 10fr;
+    color: #fff;
 }
 
+.dialog{
+    color: #fff;
+}
 .dialogsItems{
     padding: 10px;
 }

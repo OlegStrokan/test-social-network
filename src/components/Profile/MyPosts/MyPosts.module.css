@@ -1,0 +1,20 @@
+textarea{
+    width: 200px;
+    height: 70px;
+}
+button{
+    padding: 10px 30px;
+    border: 2px solid #000;
+    background-color: burlywood;
+    color: #fff;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.postsBlock{
+    padding: 10px;
+}
+
+.posts{
+    margin-top: 10px;
+}

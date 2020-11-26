@@ -1,0 +1,11 @@
+.item{
+    color: #fff;
+    font-size: 1rem;
+    margin-left: 20px;
+}
+
+.item img{
+    width: 80px;
+    height: 50px;
+    border-radius: 30px;
+}

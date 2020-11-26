@@ -1,10 +1,20 @@
 .nav{
     grid-area: n;
     background-color: burlywood;
+    border-radius: 10px;
+    padding: 50px 20px;
+}
+.item{
+    border-bottom: 1px solid slategray;
+    padding: 10px;
+    text-align: center;
 }
 .item a{
     color: #fff;
+    text-decoration: none;
 }
-.item.active{
-    color: #0aff2d;
+.item a.active{
+    color: gold;
+    text-decoration: none;
+    display: block;
 }

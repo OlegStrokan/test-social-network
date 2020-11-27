@@ -1,22 +1,10 @@
 import React from "react"
 import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
+import Message from './Message/Message'
+import DialogItem from './DialogItem/DialogItem'
 
 // функции добавления тега
-const DialogItem = (props) => {
-    return (
-        <div className={s.dialog + ' ' + s.active}>
-            <NavLink to={'/dialogs/' + props.id}>{props.name}</NavLink>
-        </div>
-    )
-}
-const Message = (props) => {
-    return (
-        <div className={s.dialog}>
-            {props.message}
-        </div>
-    )
-}
 
 // данные с сервера
 const Dialogs = (props) => {

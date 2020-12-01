@@ -14,14 +14,14 @@ function App(props) {
               <Header/>
               <Navbar/>
               <div className='app-wrapper-content'>
-                {/*  <Route path='/dialogs' component={Dialogs}/>
+                {/*  <Route path='/dialogs' componen t={Dialogs}/>
                   <Route path='/profile' component={Profile}/>*/}
                   <Route path='/dialogs'
-                         render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+                         render={() => <Dialogs store={props.store}/>}/>
                   <Route path='/profile'
                          render={() => <Profile
                              profilePage={props.state.profilePage}
-                             dispath={props.dispath}/>}/>
+                             dispatch={props.dispatch}/>}/>
               </div>
           </div>
       </BrowserRouter>

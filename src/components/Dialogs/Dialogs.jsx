@@ -4,19 +4,26 @@ import {NavLink} from "react-router-dom";
 import Message from './Message/Message'
 import DialogItem from './DialogItem/DialogItem'
 import Post from "../Profile/MyPosts/Post/Post";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/state";
 
-const newPostMessage = React.createRef()
 
-const AddMessage = () => {
-    const text = newPostMessage.current.value
-    alert (text)
-}
 // данные с сервера
 const Dialogs = (props) => {
-
+    let state = props.store.getState().dialogsPage
     //  получаем jsx элементы
-    const dialogsElements = props.state.dialogs.map((d) => <DialogItem name={d.name} id={d.id}/>)
-    const messageElements = props.state.messages.map((m) =>  <Message message={m.message}/>)
+    let dialogsElements = state.dialogs.map((d) => <DialogItem name={d.name} id={d.id}/>)
+    let messageElements = state.messages.map((m) =>  <Message message={m.message}/>)
+    let newMessageBody = state.newMessageBody
+
+
+
+    let onSendMessageClick = () => {
+        props.store.dispatch(sendMessageCreator())
+    }
+    let onNewMessageChange = (e) => {
+        let body = e.target.value
+        props.store.dispatch(updateNewMessageBodyCreator(body))
+    }
 
     return (
         <div className={s.dialogs}>
@@ -26,15 +33,13 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}>
                 {/*- ---------отрисовываем jsx элементы----------*/}
-                {messageElements}
-            </div>
-            <div><textarea ref={newPostMessage}>
-
-           </textarea></div>
-            <button onClick={AddMessage}>Add Post</button>
-            <div className={s.posts}>
-
-
+                <div>{messageElements}</div>
+                <div>
+                    <div><textarea value={newMessageBody}
+                                   onChange={onNewMessageChange}
+                                   placeholder='Enter your message'> </textarea></div>
+                    <div><button onClick={onSendMessageClick}>Send</button></div>
+                </div>
             </div>
         </div>
 

@@ -11,7 +11,7 @@ const Profile = (props) => {
             <ProfileInfo/>
             <MyPosts posts={props.profilePage.posts}
                      newPostText={ props.profilePage.newPostText}
-                     dispath={props.dispath}/>}/>
+                     dispatch={props.dispatch}/>}/>
 </div>
     )
 }

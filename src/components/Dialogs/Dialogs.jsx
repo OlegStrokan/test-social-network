@@ -1,11 +1,7 @@
 import React from "react"
 import s from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
 import Message from './Message/Message'
 import DialogItem from './DialogItem/DialogItem'
-import Post from "../Profile/MyPosts/Post/Post";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
-
 
 // данные с сервера
 const Dialogs = (props) => {

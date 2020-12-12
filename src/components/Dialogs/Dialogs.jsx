@@ -7,11 +7,9 @@ import DialogItem from './DialogItem/DialogItem'
 const Dialogs = (props) => {
     let state = props.dialogsPage
     //  получаем jsx элементы
-    let dialogsElements = state.dialogs.map((d) => <DialogItem name={d.name} id={d.id}/>)
-    let messageElements = state.messages.map((m) =>  <Message message={m.message}/>)
+    let dialogsElements = state.dialogs.map((d) => <DialogItem name={d.name} key={d.id} id={d.id}/>)
+    let messageElements = state.messages.map((m) =>  <Message message={m.message} key={m.id}/>)
     let newMessageBody = state.newMessageBody
-
-
 
     let onSendMessageClick = () => {
         props.sendMessage()

@@ -1,33 +1,27 @@
 import React from "react"
-import s from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
-import Message from './Message/Message'
-import DialogItem from './DialogItem/DialogItem'
-import Post from "../Profile/MyPosts/Post/Post";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
-
-// данные с сервера
-const DialogsContainer = (props) => {
-    return <StoreContext.Consumer>{
-        (store) => {
-            let state = store.getState().dialogsPage
-
-            let onSendMessageClick = () => {
-                store.dispatch(sendMessageCreator())
-            }
-            let onNewMessageChange = (body) => {
-                store.dispatch(updateNewMessageBodyCreator(body))
-            }
-            return < Dialogs updateNewMessageBody={onNewMessageChange}
-                             sendMessage={onSendMessageClick}
-                             dialogsPage={state}/>
+// превратить часть стейта в пропсы
+let mapStateToProps = (state) => {
+    return {
+        dialogsPage: state.dialogsPage
+    }
+}
+// коллбеки, которые будут отправлены в презентационную компоненту
+let mapDispatchToProps = (dispatch) => {
+    return {
+        sendMessage: () => {
+            dispatch(sendMessageCreator())
+        },
+        updateNewMessageBody: (body) => {
+            dispatch(updateNewMessageBodyCreator(body))
         }
     }
-    </StoreContext.Consumer>
-
 }
 
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+
 export default DialogsContainer
+

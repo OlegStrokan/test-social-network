@@ -3,9 +3,9 @@ import React from "react";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import UsersContainer from "./components/Users/Users"
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import {BrowserRouter,Route} from 'react-router-dom';
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 function App(props) {
@@ -23,7 +23,6 @@ function App(props) {
                          render={() => <Profile/>}/>
                   <Route path='/users'
                          render={() => <UsersContainer/>}/>
-
               </div>
           </div>
       </BrowserRouter>

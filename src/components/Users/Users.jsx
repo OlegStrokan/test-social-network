@@ -1,58 +1,44 @@
 import React from 'react'
-import styles from './Users.module.css'
+import styles from './users.module.css'
+import * as axios from 'axios'
+import userPhoto from '../../assets/images/img.jpg'
 
 let Users = (props) => {
-    if (props.users.length === 0) {
-        props.setUser([
-                {
-                    id: 1,
-                    followed: false,
-                    imgUrl: 'https://pbs.twimg.com/profile_images/890611271028137984/_5xAXOi-_400x400.jpg',
-                    fullName: 'Oleg',
-                    status: 'I am a boss',
-                    location: {city: 'Kiev', country: 'Ukraine'}
-                },
-                {
-                    id: 2,
-                    followed: true,
-                    imgUrl: 'https://pbs.twimg.com/profile_images/890611271028137984/_5xAXOi-_400x400.jpg',
-                    fullName: 'Tom',
-                    status: 'I am a boss too',
-                    location: {city: 'Los Angeles', country: 'USA'}
-                },
-                {
-                    id: 3,
-                    followed: false,
-                    imgUrl: 'https://pbs.twimg.com/profile_images/890611271028137984/_5xAXOi-_400x400.jpg',
-                    fullName: 'Jack',
-                    status: 'I am a boss too',
-                    location: {city: 'London', country: 'UK'}
-                },
-            ]
-        )
+    let getUser = () => {
+        if (props.users.length === 0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+                props.setUsers(response.data.items)
+            })
+        }
     }
-    return  <div>
+
+    return <div>
+        <button onClick={getUser}>Get Users</button>
         {
-            props.users.map( u => <div key={u.id}>
+            props.users.map(u => <div key={u.id}>
                <span>
                    <div>
-                       <img src={u.imgUrl} className={styles.img}/>
+                       <img src={u.photos.small != null ? u.photos.small : userPhoto } className={styles.img}/>
                    </div>
                    <div>
-                       { u.followed
-                           ? <button onClick={() => {props.unfollow(u.id)}}>Follow</button>
-                           : <button onClick={() => {props.follow(u.id)}}>Unfollow</button>
+                       {u.followed
+                           ? <button onClick={() => {
+                               props.unfollow(u.id)
+                           }}>Unfollow</button>
+                           : <button onClick={() => {
+                               props.follow(u.id)
+                           }}>Follow</button>
                        }
                    </div>
                </span>
                 <span>
                     <span>
-                        <div>{u.fullName}</div>
+                        <div>{u.name}</div>
                         <div>{u.status}</div>
                     </span>
                     <span>
-                        <div>{u.location.country}</div>
-                        <div>{u.location.city}</div>
+                        <div>{"u.location.country"}</div>
+                        <div>{"u.location.city"}</div>
                     </span>
                 </span>
             </div>)

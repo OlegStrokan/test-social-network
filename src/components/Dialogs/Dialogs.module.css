@@ -2,21 +2,32 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
     color: #fff;
+    grid-gap: 10px;
 }
 
 .dialog{
-    color: #fff;
+    color: #000;
 }
 .dialogsItems{
     padding: 10px;
+    background-color: #eaeaea;
+    border-radius: 10px;
 }
 
 .dialogsItems .active{
     color: gold;
 }
 .messages{
-    padding: 10px;
+
 }
 .message{
-
+    background-color: #eaeaea;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.wrapper{
+    padding: 10px;
+    background-color: #eaeaea;
+    border-radius: 10px;
 }

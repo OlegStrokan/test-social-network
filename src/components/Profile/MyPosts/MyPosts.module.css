@@ -1,18 +1,19 @@
 textarea{
-    width: 200px;
-    height: 70px;
+
 }
 button{
-    padding: 10px 30px;
-    border: 2px solid #000;
-    background-color: burlywood;
+    padding: 5px 25px;
+    background-color: #3e3e3e;
     color: #fff;
-    border-radius: 10px;
+    font-size: 18px;
+    border-radius: 5px;
     margin: 20px;
 }
-
-.postsBlock{
-    padding: 10px;
+.bgColor {
+    background-color: #eaeaea;
+    padding: 20px;
+    margin: 20px 10px 0 0;
+    border-radius: 10px;
 }
 
 .posts{

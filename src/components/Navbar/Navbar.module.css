@@ -1,8 +1,10 @@
 .nav{
     grid-area: n;
-    background-color: burlywood;
-    border-radius: 10px;
+    background-color: #eaeaea;
     padding: 50px 20px;
+    border-radius: 10px;
+    min-height: 92vh;
+    min-width: 250px;
 }
 .item{
     border-bottom: 1px solid slategray;
@@ -10,11 +12,11 @@
     text-align: center;
 }
 .item a{
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 .item a.active{
-    color: gold;
+    color: #0033cb;
     text-decoration: none;
     display: block;
 }

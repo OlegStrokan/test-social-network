@@ -1,7 +1,32 @@
 .img{
     width: 150px;
     height: 170px;
+    border-radius: 10px;
 }
 .selectedPage {
     font-weight: bold;
+}
+.user{
+    background-color: #eaeaea;
+    margin: 10px 10px 0 0;
+    padding: 10px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.user span:last-child{
+    margin-left: 20px;
+}
+.counter{
+    display: flex;
+    justify-content: center;
+    color: #3e3e3e;
+    cursor: pointer;
+    background-color: #eaeaea;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.counter * {
+    padding: 10px;
 }

@@ -1,24 +1,32 @@
 import React from 'react'
-import styles from './users.module.css'
 import * as axios from 'axios'
-import userPhoto from '../../assets/images/img.jpg'
+import s from "./users.module.css";
+import userPhoto from "../../assets/images/img.jpg";
 
 let Users = (props) => {
-    let getUsers = () => {
-        if (props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-                props.setUsers(response.data.items)
-            })
-        }
+
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+
+    let pages = []
+    for (let i = 1; i <= 10; i++){
+        pages.push(i)
     }
 
     return <div>
-        <button onClick={getUsers}>Get Users</button>
+        <div className={s.counter}>
+            {pages.map(p => {
+                return <span className={props.currentPage === p && s.selectedPage}
+                             onClick={(e) => {
+                                 props.onPageChanged(p)
+                             }}>{p}</span>
+            })}
+        </div>
         {
             props.users.map(u => <div key={u.id}>
+                <div className={s.user}>
                <span>
                    <div>
-                       <img src={u.photos.small != null ? u.photos.small : userPhoto } className={styles.img}/>
+                       <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.img}/>
                    </div>
                    <div>
                        {u.followed
@@ -26,7 +34,7 @@ let Users = (props) => {
                                props.unfollow(u.id)
                            }}>Unfollow</button>
                            : <button onClick={() => {
-                               props.follow(u.id)
+                              props.follow(u.id)
                            }}>Follow</button>
                        }
                    </div>
@@ -41,9 +49,10 @@ let Users = (props) => {
                         <div>{"u.location.city"}</div>
                     </span>
                 </span>
-            </div>)
+            </div>
+            </div>
+            )
         }
     </div>
 }
-
 export default Users

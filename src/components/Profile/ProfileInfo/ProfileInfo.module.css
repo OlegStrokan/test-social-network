@@ -1,8 +1,11 @@
 .img img{
-    width: 800px;
-    margin: 50px 0 0 85px;
-    border-radius: 10px;
+    width: 1170px;
+    height: 200px;
+    margin: auto;
 }
 .descriptionBlock{
+    background-color: #eaeaea;
+    margin: 20px 10px 0 0;
+    border-radius: 10px;
     padding: 10px;
 }

@@ -22,19 +22,18 @@ const MyPosts = (props) => {
     }
     return (
         <div className={s.postsBlock}>
+            <div className={s.bgColor}>
             My posts
-            <div>
-           <div><textarea onChange={onPostChange}
+           <div><textarea className="form-control"  rows="3" onChange={onPostChange}
                           ref={newPostElement}
                           value={props.newPostText}>
 
            </textarea></div>
             <button onClick={onAddPost}>Add Post</button>
+            </div>
             <div className={s.posts}>
                 {postsElements}
-
             </div>
-        </div>
         </div>
     );
 }

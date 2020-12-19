@@ -2,11 +2,12 @@ import React from 'react'
 import * as axios from 'axios'
 import s from "./users.module.css";
 import userPhoto from "../../assets/images/img.jpg";
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-
+    // установил 10, чтобы была фиксированная шинина страницы
     let pages = []
     for (let i = 1; i <= 10; i++){
         pages.push(i)
@@ -26,7 +27,10 @@ let Users = (props) => {
                 <div className={s.user}>
                <span>
                    <div>
-                       <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.img}/>
+                       <NavLink to={'/profile/' + u.id}>
+                       <img src={u.photos.small != null ? u.photos.small : userPhoto}
+                            className={s.img}/>
+                      </NavLink>
                    </div>
                    <div>
                        {u.followed

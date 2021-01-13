@@ -27,6 +27,12 @@
     margin-right: 10px;
 }
 
+.button {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
 .counter * {
     padding: 10px;
 }

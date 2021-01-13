@@ -9,3 +9,11 @@
     margin-left: 20px;
  
 }
+
+.loginBlock{
+    float: right
+}
+.loginBlock{
+    text-decoration: none;
+    margin: 10px;
+}

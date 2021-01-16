@@ -12,7 +12,7 @@ function App(props) {
   return (
       <BrowserRouter>
           <div className='app-wrapper'>
-              <HeaderContainer/>xx
+              <HeaderContainer/>
               <Navbar/>
               <div className='app-wrapper-content'>
                 {/*  <Route path='/dialogs' component t={Dialogs}/>

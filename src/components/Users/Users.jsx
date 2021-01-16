@@ -34,16 +34,40 @@ let Users = (props) => {
                    </div>
                    <div>
                        {u.followed
-                           ? <button className={s.button} onClick={() => {
-                               props.unfollow(u.id)
+                           ? <button onClick={() => {
+
+                               axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                   withCredentials: true,
+                                   headers: {
+                                       "API-KEY": "9cb62e1b-d2a5-4130-bd00-d3e8ccf1758e"
+                                   }
+                               })
+                                   .then(response => {
+                                       if (response.data.resultCode == 0) {
+                                           props.unfollow(u.id);
+                                       }
+                                   });
+
                            }}>Unfollow</button>
-                           : <button className={s.button} onClick={() => {
-                              props.follow(u.id)
-                           }}>Follow</button>
-                       }
+                           : <button onClick={() => {
+
+                               axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                   withCredentials: true,
+                                   headers: {
+                                       "API-KEY": "9cb62e1b-d2a5-4130-bd00-d3e8ccf1758e"
+                                   }
+                               })
+                                   .then(response => {
+                                       if (response.data.resultCode == 0) {
+                                           props.follow(u.id);
+                                       }
+                                   });
+
+
+                           }}>Follow</button>}
                    </div>
                </span>
-                <span>
+                    <span>
                     <span>
                         <div>{u.name}</div>
                         <div>{u.status}</div>

@@ -12,10 +12,14 @@ export const usersAPI = {
     getUsers(currentPage = 1,pageSize = 10) {
         return instanse.get(`users?page=
             ${currentPage}&count=${pageSize}`).then(response => response.data)
+    },
+    follow(userId){
+        return instanse.post(`follow/${userId.id}`)
+
+    },
+    unfollow(userId){
+        return instanse.delete(`follow/${userId.id}`)
     }
 }
 
-export const getUsers2 = (currentPage = 1,pageSize = 10) => {
-    return instanse.get(`users?page=
-            ${currentPage}&count=${pageSize}`).then(response => response.data)
-}
+

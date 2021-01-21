@@ -6,7 +6,8 @@ import {connect} from "react-redux";
 // превратить часть стейта в пропсы
 let mapStateToProps = (state) => {
     return {
-        dialogsPage: state.dialogsPage
+        dialogsPage: state.dialogsPage,
+        isAuth: state.auth.isAuth
     }
 }
 // коллбеки, которые будут отправлены в презентационную компоненту

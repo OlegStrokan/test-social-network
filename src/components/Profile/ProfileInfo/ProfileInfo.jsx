@@ -1,6 +1,7 @@
 import s from "./ProfileInfo.module.css";
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
+import {Redirect} from "react-router-dom";
 
 const ProfileInfo = (props) => {
     if (!props.profile){

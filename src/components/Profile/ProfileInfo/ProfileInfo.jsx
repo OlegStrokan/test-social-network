@@ -1,7 +1,7 @@
 import s from "./ProfileInfo.module.css";
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
-import {Redirect} from "react-router-dom";
+import ProfileStatus from './ProfileStatus'
 
 const ProfileInfo = (props) => {
     if (!props.profile){
@@ -15,6 +15,7 @@ const ProfileInfo = (props) => {
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large}/>
                 {props.profile.fullName}
+                <ProfileStatus status='samurai'/>
             </div>
         </div>
     )

@@ -3,7 +3,6 @@ import * as axios from 'axios'
 import s from "./users.module.css";
 import userPhoto from "../../assets/images/img.jpg";
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
 

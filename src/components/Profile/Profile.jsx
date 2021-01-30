@@ -6,12 +6,10 @@ import {Redirect} from "react-router-dom";
 
 
 const Profile = (props) => {
-    return (
-        <div>
-            <ProfileInfo profile={props.profile}/>
-            <MyPostsContainer/>
-</div>
-    )
+    return <div>
+        <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+        <MyPostsContainer/>
+    </div>
 }
 
 export default Profile

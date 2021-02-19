@@ -14,9 +14,8 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA: {
             return {
                 ...state,
-                // в экшене будет лежать data, где будет { userId,email,login }
-                ...action.data,
-                isAuth: true
+                // в экшене будет лежать данные, где будет { userId,email,login }
+                ...action.payload
             }
         }
         default:
@@ -24,18 +23,40 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserDataSuccess = (userId, email, login) =>
-    ({type: SET_USER_DATA, data: {userId,email, login}})
+export const setAuthUserDataSuccess = (userId, email, login, isAuth) =>
+    ({type: SET_USER_DATA, payload: {userId,email, login, isAuth}})
 
 export const setAuthUserData = () => {
     return (dispatch) => {
         authAPI.me().then(response => {
             if (response.data.resultCode === 0) {
                 let {id, login, email} = response.data.data
-                dispatch(setAuthUserDataSuccess(id, email, login))
+                dispatch(setAuthUserDataSuccess(id, email, login, true))
             }
         })
     }
 }
+
+export const login = (email, password, rememberMe) => {
+    return (dispatch) => {
+        authAPI.login(email, password, rememberMe).then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setAuthUserData())
+            }
+        })
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        authAPI.logout().then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(setAuthUserDataSuccess(null, null, null, false))
+            }
+        })
+    }
+}
+
+
 
 export default authReducer

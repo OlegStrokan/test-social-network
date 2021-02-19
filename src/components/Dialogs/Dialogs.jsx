@@ -6,7 +6,6 @@ import handleSubmit from "redux-form/lib/handleSubmit";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, minLengthCreator, required} from "../../utils/validators/validators"
 import {FormControl} from '../../components/common/FormsControl/FormsControl'
-
 const Textarea = FormControl("textarea")
 
 // данные с сервера

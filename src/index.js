@@ -11,12 +11,7 @@ setInterval(() => {
     store.dispatch({type: "FAKE"})
 })
 
-ReactDOM.render(
-    <BrowserRouter>
-      <Provider store={store}>
-        <App/>
-    </Provider>
-    </BrowserRouter>,document.getElementById('root'))
+ReactDOM.render(<App/>,document.getElementById('root'))
 
 
 

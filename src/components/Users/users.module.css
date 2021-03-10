@@ -3,9 +3,7 @@
     height: 170px;
     border-radius: 10px;
 }
-.selectedPage {
-    font-weight: bold;
-}
+
 .user{
     background-color: #eaeaea;
     margin: 10px 10px 0 0;
@@ -17,22 +15,10 @@
 .user span:last-child{
     margin-left: 20px;
 }
-.counter{
-    display: flex;
-    justify-content: center;
-    color: #3e3e3e;
-    cursor: pointer;
-    background-color: #eaeaea;
-    border-radius: 10px;
-    margin-right: 10px;
-}
+
 
 .button {
     width: 100px;
     display: flex;
     justify-content: center;
-}
-
-.counter * {
-    padding: 10px;
 }

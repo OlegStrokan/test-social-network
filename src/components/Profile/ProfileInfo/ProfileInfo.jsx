@@ -3,8 +3,8 @@ import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 
-const ProfileInfo = (props) => {
-    if (!props.profile){
+const ProfileInfo = ({profile,status, updateStatus}) => {
+    if (!profile){
         return <Preloader/>
     }
     return (
@@ -13,9 +13,9 @@ const ProfileInfo = (props) => {
                 <img src="https://i.imgur.com/ikJDyFT.jpg" alt="main-img"/>
             </div>
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large}/>
-              <div>FullName: {props.profile.fullName}</div>
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                <img src={profile.photos.large}/>
+              <div>FullName: {profile.fullName}</div>
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
             </div>
         </div>
     )

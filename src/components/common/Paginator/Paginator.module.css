@@ -1,0 +1,15 @@
+.selectedPage {
+    font-weight: bold;
+}
+.counter{
+    display: flex;
+    justify-content: center;
+    color: #3e3e3e;
+    cursor: pointer;
+    background-color: #eaeaea;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.counter * {
+    padding: 10px;
+}

@@ -1,5 +1,6 @@
 .selectedPage {
     font-weight: bold;
+    outline: 1px solid #ff0;
 }
 .counter{
     display: flex;
@@ -10,6 +11,13 @@
     border-radius: 10px;
     margin-right: 10px;
 }
-.counter * {
+
+.pageNumber {
+    background: #b5b5b5;
+    border-radius: 10px;
+    display: flex;
     padding: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 5px;
 }

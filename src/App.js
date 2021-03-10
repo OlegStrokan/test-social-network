@@ -49,7 +49,14 @@ const mapStateToProps = (state) => ({
 })
 
 
-
-export default compose(
+const AppContainer = compose(
     withRouter,
     connect(mapStateToProps,{initializeApp}))(App)
+
+ const SamurajJSApp = (props) => {
+    return <BrowserRouter>
+        <Provider store={store}><AppContainer/></Provider>
+    </BrowserRouter>
+}
+
+export default SamurajJSApp

@@ -1,10 +1,10 @@
 import './App.css';
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
+//import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import {BrowserRouter,Route, withRouter} from 'react-router-dom';
 import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
+//import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {connect, Provider} from "react-redux";
@@ -12,6 +12,10 @@ import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import {compose} from "redux";
 import store from "./redux/redux-store";
+import {withSuspense} from "./hoc/withSuspense";
+
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
 
 class App extends React.Component {
     componentDidMount() {
@@ -27,12 +31,10 @@ class App extends React.Component {
                     <HeaderContainer/>
                     <Navbar/>
                     <div className='app-wrapper-content'>
-                        {/*  <Route path='/dialogs' component t={Dialogs}/>
-                  <Route path='/profile' component={Profile}/>*/}
                         <Route path='/dialogs'
-                               render={() => <DialogsContainer/>}/>
+                               render={withSuspense(DialogsContainer)}/>
                         <Route path='/profile/:userId?'
-                               render={() => <ProfileContainer/>}/>
+                               render={withSuspense(ProfileContainer)}/>
                         <Route path='/users'
                                render={() => <UsersContainer/>}/>
                         <Route path='/login'

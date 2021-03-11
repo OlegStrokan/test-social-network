@@ -1,10 +1,8 @@
 import './App.css';
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
-//import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import {BrowserRouter,Route, withRouter} from 'react-router-dom';
 import UsersContainer from "./components/Users/UsersContainer";
-//import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {connect, Provider} from "react-redux";
@@ -55,7 +53,7 @@ const AppContainer = compose(
     withRouter,
     connect(mapStateToProps,{initializeApp}))(App)
 
- const SamurajJSApp = (props) => {
+ const SamurajJSApp = () => {
     return <BrowserRouter>
         <Provider store={store}><AppContainer/></Provider>
     </BrowserRouter>

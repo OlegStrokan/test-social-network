@@ -1,7 +1,6 @@
 import React from 'react'
 import s from './FormsControl.module.css'
 import {Field} from "redux-form";
-import {required} from "../../../utils/validators/validators";
 
 export const  FormControl = Element => ({ input, meta: {touched, error}, ...props }) => {
     const hasError = touched && error

@@ -11,13 +11,22 @@ import Preloader from "./components/common/Preloader/Preloader";
 import {compose} from "redux";
 import store from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspense";
+import {Redirect} from "react-router-dom"
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
 
 class App extends React.Component {
+    catchAllUnhandledErrors = (promiseRejectionEvent) => {
+        alert('Some error')
+        console.log(promiseRejectionEvent)
+    }
     componentDidMount() {
         this.props.initializeApp()
+        window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors)
+    }
+    componentWillUnmount() {
+        window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors)
     }
 
     render() {
@@ -29,6 +38,8 @@ class App extends React.Component {
                     <HeaderContainer/>
                     <Navbar/>
                     <div className='app-wrapper-content'>
+                        <Route exact path='/'
+                               render={() =><Redirect to={'/profile'}/>}/>
                         <Route path='/dialogs'
                                render={withSuspense(DialogsContainer)}/>
                         <Route path='/profile/:userId?'

@@ -8,9 +8,6 @@ const SET_STATUS = 'SET-STATUS'
 const DELETE_POST = 'DELETE_POST'
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 
-
-
-
 let initialState = {
         posts: [
             {id:  1, message: 'Hi, how are you', likesCount: 12},
@@ -58,22 +55,18 @@ type AddPostActionCreatorActionType = {
     type: typeof ADD_POST,
     newPostText: string
 }
-
 type SetUserProfileActionType = {
     type: typeof SET_USER_PROFILE,
     profile: ProfileType
 }
-
 type SetStatusActionType = {
     type: typeof SET_STATUS,
     status: string
 }
-
 type DeletePostActionType = {
     type: typeof DELETE_POST,
     postId: number
 }
-
 type SavePhotoSuccessActionType = {
     type: typeof SAVE_PHOTO_SUCCESS,
     photos: PhotosType

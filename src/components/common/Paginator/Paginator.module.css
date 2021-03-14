@@ -1,6 +1,5 @@
 .selectedPage {
     font-weight: bold;
-    outline: 1px solid #ff0;
 }
 .counter{
     display: flex;

@@ -61,7 +61,6 @@ export enum ResultCodesForCaptcha {
     CaptchaIsRequired = 10
 }
 
-
 type MeResponseType = {
     data: { id: number, email: string, login: string }
     resultCode: ResultCodesEnum
@@ -73,8 +72,6 @@ type LoginResponseType = {
     resultCode: ResultCodesEnum | ResultCodesForCaptcha
     messages: Array<string>
 }
-
-
 
 export const authAPI = {
     me() {

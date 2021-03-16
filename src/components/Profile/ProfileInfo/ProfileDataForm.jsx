@@ -1,10 +1,8 @@
 import React from 'react'
-import {createField, FormControl} from "../../common/FormsControl/FormsControl";
+import {createField, Input, Textarea} from "../../common/FormsControl/FormsControl";
 import {reduxForm} from "redux-form";
 import s from '../../common/FormsControl/FormsControl.module.css'
 
-const Input = FormControl("input")
-const Textarea = FormControl("textarea")
 
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
     return <form onSubmit={handleSubmit}>

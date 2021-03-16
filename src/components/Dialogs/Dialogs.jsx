@@ -5,8 +5,7 @@ import DialogItem from './DialogItem/DialogItem'
 import handleSubmit from "redux-form/lib/handleSubmit";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, minLengthCreator, required} from "../../utils/validators/validators"
-import {FormControl} from '../common/FormsControl/FormsControl'
-const Textarea = FormControl("textarea")
+import {Textarea} from '../common/FormsControl/FormsControl'
 
 // данные с сервера
 const Dialogs = (props) => {

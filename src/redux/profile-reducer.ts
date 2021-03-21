@@ -51,7 +51,7 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
     }
 }
 
-type AddPostActionCreatorActionType = {
+type AddPostActionType = {
     type: typeof ADD_POST,
     newPostText: string
 }
@@ -72,7 +72,7 @@ type SavePhotoSuccessActionType = {
     photos: PhotosType
 }
 
-export const addPostActionCreator = (newPostText: string): AddPostActionCreatorActionType => ({type: ADD_POST, newPostText})
+export const addPost = (newPostText: string): AddPostActionType => ({type: ADD_POST, newPostText})
 export const setUserProfile = (profile: ProfileType): SetUserProfileActionType => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status: string): SetStatusActionType => ({type: SET_STATUS, status})
 export const deletePost = (postId: number): DeletePostActionType => ({type: DELETE_POST, postId})

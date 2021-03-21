@@ -1,5 +1,4 @@
 
-
 export type PostType = {
     id: number,
     message: string,
@@ -13,7 +12,7 @@ export type ContactsType = {
     twitter: string,
     website: string,
     youtube: string,
-    mainLink: string,
+    mainLink: string
 }
 export type PhotosType = {
     small: string | null,

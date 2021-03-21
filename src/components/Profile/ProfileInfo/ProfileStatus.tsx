@@ -5,7 +5,7 @@ type PropsType = {
     updateStatus: (newStatus: string) => void
 }
 type StateType = {
-    editMode: boolean,
+    editMode: boolean
     status: string
 }
 
@@ -44,21 +44,24 @@ class ProfileStatus extends React.Component<PropsType, StateType> {
     }
 
     render() {
-        return <div>
-            {!this.state.editMode &&
+
+        return (
             <div>
-                <span onDoubleClick={this.activateEditMode}>{this.props.status || "-------"}</span>
+                {!this.state.editMode &&
+                <div>
+                    <span onDoubleClick={this.activateEditMode}>{this.props.status || "-------"}</span>
+                </div>
+                }
+                {this.state.editMode &&
+                <div>
+                    <input onChange={this.onStatusChange} autoFocus={true}
+                           onBlur={this.deactivateEditMode.bind(this)}
+                           value={this.state.status}/>
+                </div>
+                }
             </div>
-            }
-            {this.state.editMode &&
-            <div>
-                <input onChange={this.onStatusChange} autoFocus={true}
-                       onBlur={this.deactivateEditMode.bind(this)}
-                       value={this.state.status}/>
-            </div>
-            }
-        </div>
+        )
     }
 }
 
-export default ProfileStatus
+export default ProfileStatus;

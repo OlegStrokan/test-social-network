@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from "axios";
+import axios from "axios";
 import {ProfileType} from "../types/types";
 
 const instance = axios.create({
@@ -54,7 +54,7 @@ export const profileAPI = {
 
 export enum ResultCodesEnum {
     Success = 0,
-    Error = 1,
+    Error = 1
 }
 
 export enum ResultCodesForCaptcha {

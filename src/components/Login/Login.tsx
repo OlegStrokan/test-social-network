@@ -26,7 +26,6 @@ export type LoginFormValuesType = {
 type LoginFormValuesTypeKeys = Extract<keyof LoginFormValuesType, string>
 
 
-
 const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnProps> & LoginFormOwnProps> = ({handleSubmit, error, captchaUrl}) => {
     return  <form onSubmit={handleSubmit}>
             {createField<LoginFormValuesTypeKeys>('Email','email',[required], Input)}

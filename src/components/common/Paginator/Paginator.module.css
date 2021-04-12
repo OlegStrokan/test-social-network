@@ -1,22 +1,13 @@
-.selectedPage {
-    font-weight: bold;
+
+.paginator {
+    margin: 10px;
 }
-.counter{
-    display: flex;
-    justify-content: center;
-    color: #3e3e3e;
-    cursor: pointer;
-    background-color: #eaeaea;
-    border-radius: 10px;
-    margin-right: 10px;
+.pageNumber {
+    padding: 2px;
+    border: 1px solid grey;
 }
 
-.pageNumber {
-    background: #b5b5b5;
-    border-radius: 10px;
-    display: flex;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 5px;
+.pageNumber.selectedPage {
+    font-weight: bold;
+    border-color: black;
 }

@@ -1,14 +1,34 @@
-.app-wrapper{
-  display: grid;
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-  grid-template-areas: 'h h'
-  'n c';
-  width: 100%;
-}
-.app-wrapper-content{
-  grid-area: c;
+.app-wrapper {
+    margin: 0 auto;
+    display: grid;
+    width: 1200px;
+    grid-template-areas: "h h" "n c";
 
-  font-size: 1.5rem;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    /* grid-gap: 10px; */
 }
+
+.app-wrapper-content {
+    grid-area: c;
+    background-color: cornflowerblue;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+/messages
+/dialogs
+
+/dialogs/3
+/dialogs/2
+
+*/

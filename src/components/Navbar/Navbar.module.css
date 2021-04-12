@@ -1,22 +1,14 @@
-.nav{
+.nav {
     grid-area: n;
-    background-color: #eaeaea;
-    padding: 50px 20px;
-    border-radius: 10px;
-    min-height: 92vh;
-    min-width: 250px;
+    background-color: burlywood;
+    padding: 20px;
 }
-.item{
-    border-bottom: 1px solid slategray;
-    padding: 10px;
-    text-align: center;
-}
-.item a{
-    color: #000;
+
+.item a {
+    color: white;
     text-decoration: none;
 }
-.item a.active{
-    color: #0033cb;
-    text-decoration: none;
-    display: block;
+
+.item a.activeLink {
+    color: gold;
 }

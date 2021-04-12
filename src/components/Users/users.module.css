@@ -1,24 +1,6 @@
-.img{
-    width: 150px;
-    height: 170px;
-    border-radius: 10px;
-}
-
-.user{
-    background-color: #eaeaea;
-    margin: 10px 10px 0 0;
-    padding: 10px;
-    display: flex;
-    border-radius: 10px;
-}
-
-.user span:last-child{
-    margin-left: 20px;
+.userPhoto {
+     width: 100px;
+    height: 100px;
 }
 
 
-.button {
-    width: 100px;
-    display: flex;
-    justify-content: center;
-}

@@ -1,17 +1,11 @@
-.img img{
-    width: 1170px;
-    height: 200px;
-    margin: auto;
-}
-.userImg{
-    width: 200px;
-}
-.descriptionBlock{
-    background-color: #eaeaea;
-    margin: 20px 10px 0 0;
-    border-radius: 10px;
+.descriptionBlock {
     padding: 10px;
 }
-.contacts{
+
+.mainPhoto {
+    max-width: 200px;
+}
+
+.contact {
     padding-left: 10px;
 }

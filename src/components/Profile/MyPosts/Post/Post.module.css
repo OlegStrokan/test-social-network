@@ -1,24 +1,9 @@
-.item{
-    color: #000;
-    font-size: 1rem;
-    display: flex;
-    padding: 10px;
-    background-color: #eaeaea;
-    margin: 20px;
-    border-radius: 10px;
-}
-.item div{
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-}
-.item div span:last-child{
-    font-size: 0.8rem;
-    margin-top: 5px;
+.item {
+  color: greenyellow;
 }
 
-.item img{
-    width: 80px;
-    height: 50px;
-    border-radius: 10px;
+.item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
 }

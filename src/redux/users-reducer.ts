@@ -73,6 +73,7 @@ export const actions = {
 export const requestUsers = (page: number,
                              pageSize: number): ThunkType => {
     return async (dispatch, getState) => {
+        dispatch(actions.toggleIsFetching(true));
         dispatch(actions.setCurrentPage(page));
 
         let data = await usersAPI.getUsers(page, pageSize);
@@ -108,6 +109,6 @@ export const unfollow = (userId: number): ThunkType => {
 
 export default usersReducer;
 
-type InitialState = typeof initialState;
+export type InitialState = typeof initialState;
 type ActionsTypes = InferActionsTypes<typeof actions>
 type ThunkType = BaseThunkType<ActionsTypes>

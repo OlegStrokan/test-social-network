@@ -1,11 +1,8 @@
 import React from 'react';
 import s from './MyPosts.module.css';
-import Post from './Post/Post';
-import {Field, reduxForm} from "redux-form";
-import {maxLengthCreator, required} from "../../../utils/validators/validators";
-import {Textarea} from "../../common/FormsControls/FormsControls";
-import AddPostForm, {AddPostFormValuesType} from './AddPostForm/AddPostForm';
 import {PostType} from '../../../types/types';
+import Post from "./Post/Post";
+import AddPostForm, {AddPostFormValuesType} from "./AddPostForm/AddPostForm";
 
 
 export type MapPropsType = {

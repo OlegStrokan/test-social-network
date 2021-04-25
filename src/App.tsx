@@ -3,9 +3,9 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import {BrowserRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 
-import UsersContainer from "./components/Users/UsersContainer";
+import {UsersPage} from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginPage from "./components/Login/Login";
+import {LoginPage} from "./components/Login/LoginPage";
 import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
@@ -58,7 +58,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                                render={() => <SuspendedProfile /> }/>
 
                         <Route path='/users'
-                               render={() => <UsersContainer pageTitle={"Самураи"}/>}/>
+                               render={() => <UsersPage pageTitle={"Самураи"}/>}/>
 
                         <Route path='/login'
                                render={() => <LoginPage/>}/>

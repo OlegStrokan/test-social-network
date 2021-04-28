@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react'
+import React, {FC, useEffect} from 'react'
 import Paginator from '../common/Paginator/Paginator'
 import User from './User'
 import {UsersSearchForm} from './UsersSearchForm'
 import {FilterType, requestUsers} from '../../redux/users-reducer'
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from 'react-redux'
 import {
     getCurrentPage,
     getFollowingInProgress,
@@ -11,14 +11,14 @@ import {
     getTotalUsersCount,
     getUsers,
     getUsersFilter
-} from "../../redux/users-selectors";
-import { useHistory } from 'react-router-dom'
-import * as queryString from "querystring";
+} from '../../redux/users-selectors'
+import {useHistory} from 'react-router-dom'
+import * as queryString from 'querystring'
 
+type PropsType = {}
 
-type QueryParamsType = { term?: string, page?: string, friend?: string };
-
-let Users: React.FC = ({ ...props}) => {
+type QueryParamsType = { term?: string; page?: string; friend?: string }
+export const Users: FC<PropsType> = (props) => {
 
     const users = useSelector(getUsers)
     const totalUsersCount = useSelector(getTotalUsersCount)
@@ -61,10 +61,10 @@ let Users: React.FC = ({ ...props}) => {
 
         if (!!filter.term) query.term = filter.term
         if (filter.friend !== null) query.friend = String(filter.friend)
-        if (currentPage !== 1 ) query.page = String(currentPage)
+        if (currentPage !== 1) query.page = String(currentPage)
 
         history.push({
-            pathname: '/users',
+            pathname: '/developers',
             search: queryString.stringify(query)
         })
     }, [filter, currentPage])
@@ -76,12 +76,11 @@ let Users: React.FC = ({ ...props}) => {
     const onFilterChanged = (filter: FilterType) => {
         dispatch(requestUsers(1, pageSize, filter))
     }
-
     const follow = (userId: number) => {
-        dispatch(follow(userId))
+        dispatch(follow(userId));
     }
     const unfollow = (userId: number) => {
-        dispatch(unfollow(userId))
+        dispatch(unfollow(userId));
     }
 
     return <div>
@@ -103,6 +102,3 @@ let Users: React.FC = ({ ...props}) => {
         </div>
     </div>
 }
-
-
-export default Users

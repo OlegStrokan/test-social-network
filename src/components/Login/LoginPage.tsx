@@ -1,12 +1,12 @@
-import React from 'react';
-import {InjectedFormProps, reduxForm} from "redux-form";
-import {createField, GetStringKeys, Input} from "../common/FormsControls/FormsControls";
-import {required} from "../../utils/validators/validators";
-import {connect, useDispatch, useSelector} from "react-redux";
-import {login} from "../../redux/auth-reducer";
-import {Redirect} from "react-router-dom";
-import style from "./../common/FormsControls/FormsControls.module.css"
-import {AppStateType} from '../../redux/redux-store';
+import React from 'react'
+import {InjectedFormProps, reduxForm} from 'redux-form'
+import {createField, GetStringKeys, Input} from '../common/FormsControls/FormsControls'
+import {required} from '../../utils/validators/validators'
+import {useDispatch, useSelector} from 'react-redux'
+import {login} from '../../redux/auth-reducer'
+import {Redirect} from 'react-router-dom'
+import style from './../common/FormsControls/FormsControls.module.css'
+import {AppStateType} from '../../redux/redux-store'
 
 type LoginFormOwnProps = {
     captchaUrl: string | null
@@ -16,12 +16,12 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
     = ({handleSubmit, error, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
-            {createField<LoginFormValuesTypeKeys>("Email", 'email', [required], Input)}
-            {createField<LoginFormValuesTypeKeys>("Password", "password", [required], Input, {type: "password"})}
-            {createField<LoginFormValuesTypeKeys>(undefined, "rememberMe", [], Input, {type: "checkbox"}, "remember me")}
+            {createField<LoginFormValuesTypeKeys>('Email', 'email', [required], Input)}
+            {createField<LoginFormValuesTypeKeys>('Password', 'password', [required], Input, {type: 'password'})}
+            {createField<LoginFormValuesTypeKeys>(undefined, 'rememberMe', [], Input, {type: 'checkbox'}, 'remember me')}
 
-            { captchaUrl && <img src={captchaUrl} />}
-            { captchaUrl &&  createField<LoginFormValuesTypeKeys>("Symbols from image", "captcha", [required], Input, {}) }
+            {captchaUrl && <img src={captchaUrl}/>}
+            {captchaUrl && createField<LoginFormValuesTypeKeys>('Symbols from image', 'captcha', [required], Input, {})}
 
 
             {error && <div className={style.formSummaryError}>
@@ -46,10 +46,8 @@ export type LoginFormValuesType = {
 type LoginFormValuesTypeKeys = GetStringKeys<LoginFormValuesType>
 
 export const LoginPage: React.FC = () => {
-
-    const captchaUrl = useSelector((state: AppStateType ) => state.auth.captchaUrl)
-    const isAuth = useSelector((state: AppStateType ) => state.auth.isAuth)
-
+    const captchaUrl = useSelector((state: AppStateType) => state.auth.captchaUrl)
+    const isAuth = useSelector((state: AppStateType) => state.auth.isAuth)
     const dispatch = useDispatch()
 
     const onSubmit = (formData: LoginFormValuesType) => {
@@ -57,7 +55,7 @@ export const LoginPage: React.FC = () => {
     }
 
     if (isAuth) {
-        return <Redirect to={"/profile"}/>
+        return <Redirect to={'/profile'}/>
     }
 
     return <div>

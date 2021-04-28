@@ -1,10 +1,8 @@
-import React from 'react';
-import styles from "./users.module.css";
-import userPhoto from "../../assets/images/user.png";
-import {NavLink} from "react-router-dom";
-import {UserType} from '../../types/types';
-import {useSelector} from "react-redux";
-import {getTotalUsersCount} from "../../redux/users-selectors";
+import React from 'react'
+import styles from './users.module.css'
+import userPhoto from '../../assets/images/user.png'
+import {NavLink} from 'react-router-dom'
+import {UserType} from '../../types/types'
 
 type PropsType = {
     user: UserType
@@ -13,8 +11,7 @@ type PropsType = {
     follow: (userId: number) => void
 }
 
-let User: React.FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
-
+const User: React.FC<PropsType> = ({user, followingInProgress, unfollow, follow}) => {
     return (
         <div>
                 <span>
@@ -46,11 +43,11 @@ let User: React.FC<PropsType> = ({user, followingInProgress, unfollow, follow}) 
                         <div>{user.status}</div>
                     </span>
                     <span>
-                        <div>{"user.location.country"}</div>
-                        <div>{"user.location.city"}</div>
+                        <div>{'user.location.country'}</div>
+                        <div>{'user.location.city'}</div>
                     </span>
                 </span>
         </div>)
 }
 
-export default User;
+export default User

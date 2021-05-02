@@ -47,14 +47,4 @@ export const Header: React.FC<MapPropsType> = (props) => {
 
 
     </Header>
-
-    /*  <header className={s.header}>
-          <img src='https://www.freelogodesign.org/Content/img/logo-ex-7.png' />
-
-          <div className={s.loginBlock}>
-              { props.isAuth
-                  ? <div>{props.login} - <button onClick={props.logout}>Log out</button> </div>
-                  : <NavLink to={'/login'}>Login</NavLink> }
-          </div>
-      </header>*/
 }

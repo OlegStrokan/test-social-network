@@ -14,7 +14,7 @@ export enum ResultCodesEnum {
     Error = 1
 }
 
-export enum ResultCodeForCapcthaEnum {
+export enum ResultCodeForCaptchaEnum {
     CaptchaIsRequired = 10
 }
 

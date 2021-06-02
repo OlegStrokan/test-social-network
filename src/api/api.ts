@@ -5,7 +5,7 @@ export const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers:     {
-        "API-KEY": "b1775b2f-c3a5-4509-8dc9-90b5629de7c3"
+        "API-KEY": "7eaf4c11-a445-4b77-be52-da75e1dbe314"
     }
 });
 
@@ -14,7 +14,7 @@ export enum ResultCodesEnum {
     Error = 1
 }
 
-export enum ResultCodeForCaptchaEnum {
+export enum ResultCodeForCapcthaEnum {
     CaptchaIsRequired = 10
 }
 

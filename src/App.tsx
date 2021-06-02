@@ -13,11 +13,10 @@ import {UsersPage} from './components/Users/UsersContainer'
 
 import {Breadcrumb, Layout, Menu} from 'antd'
 import {LaptopOutlined, NotificationOutlined, UserOutlined} from '@ant-design/icons'
-import { Header } from './components/Header/Header'
+import {Header} from './components/Header/Header'
 
 const {SubMenu} = Menu
 const {Content, Footer, Sider} = Layout
-
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
@@ -30,7 +29,7 @@ type DispatchPropsType = {
 
 const SuspendedDialogs = withSuspense(DialogsContainer)
 const SuspendedProfile = withSuspense(ProfileContainer)
-const SuspendedChat = withSuspense(ChatPage)
+const SuspendedChatPage = withSuspense(ChatPage)
 
 
 class App extends Component<MapPropsType & DispatchPropsType> {
@@ -55,7 +54,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
 
         return (
             <Layout>
-                <Header />
+                <Header/>
                 <Content style={{padding: '0 50px'}}>
                     <Breadcrumb style={{margin: '16px 0'}}>
                         <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -109,7 +108,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                                        render={() => <LoginPage/>}/>
 
                                 <Route path='/chat'
-                                       render={() => <SuspendedChat/>}/>
+                                       render={() => <SuspendedChatPage/>}/>
 
                                 <Route path='*'
                                        render={() => <div>404 NOT FOUND</div>}/>
@@ -121,6 +120,33 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                 <Footer style={{textAlign: 'center'}}>Samurai Social Network ©2020 Created by IT-KAMASUTRA</Footer>
             </Layout>
 
+
+            /*      <div className='app-wrapper'>
+                      <HeaderContainer/>
+                      <Navbar/>
+                      <div className='app-wrapper-content'>
+                          <Switch>
+                              <Route exact path='/'
+                                     render={() => <Redirect to={"/profile"}/>}/>
+
+                              <Route path='/dialogs'
+                                     render={() => <SuspendedDialogs /> }/>
+
+                              <Route path='/profile/:userId?'
+                                     render={() => <SuspendedProfile /> }/>
+
+                              <Route path='/users'
+                                     render={() => <UsersPage pageTitle={"Самураи"}/>}/>
+
+                              <Route path='/login'
+                                     render={() => <LoginPage/>}/>
+
+                              <Route path='*'
+                                     render={() => <div>404 NOT FOUND</div>}/>
+                          </Switch>
+
+                      </div>
+                  </div>*/
         )
     }
 }
